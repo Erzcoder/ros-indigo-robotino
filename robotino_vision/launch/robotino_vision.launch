@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-	<node name="robotino_vision_node" pkg="robotino_vision" type="robotino_vision_node" output="screen">
-		<rosparam file="$(find robotino_vision)/config/camera_params.yaml" command="load" />
-		<rosparam file="$(find robotino_vision)/config/color_params.yaml" command="load" ns="color" />
-	</node> 
-</launch>
