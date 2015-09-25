@@ -46,7 +46,7 @@ void RobotinoNode::initModules()
 	distance_sensor_array_.setComId( com_.id() );
 	electrical_gripper_.setComId( com_.id() );
 	encoder_input_.setComId( com_.id() );
-	grappler_.setComId( com_.id() );
+	//grappler_.setComId( com_.id() );
 	//kinect_.setComId( com_.id() );
 	motor_array_.setComId( com_.id() );
 	north_star_.setComId( com_.id() );
@@ -58,7 +58,13 @@ void RobotinoNode::initModules()
 	//kinect_.setDownsample( downsample_kinect_ );
 	//kinect_.setLeafSize( leaf_size_kinect_ );
 
+    try
+    {
 	com_.connectToServer( false );
+	}catch(...)
+	{
+	std::cerr << "got exception while connecting to the server" << std::endl;
+	}
 }
 
 void RobotinoNode::initMsgs()
@@ -126,7 +132,7 @@ bool RobotinoNode::spin()
 		distance_sensor_array_.setTimeStamp(curr_time_);
 		electrical_gripper_.setTimeStamp(curr_time_);
 		encoder_input_.setTimeStamp(curr_time_);
-		grappler_.setTimeStamp(curr_time_);
+		//grappler_.setTimeStamp(curr_time_);
 		//kinect_.setTimeStamp(curr_time_);
 		motor_array_.setTimeStamp(curr_time_);
 		north_star_.setTimeStamp(curr_time_);
