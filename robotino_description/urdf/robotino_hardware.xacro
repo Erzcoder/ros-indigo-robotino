@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
-<robot>
-  <property name="M_PI" value="3.14159"/>
-  <property name="M_SCALE" value="0.01"/>
-  <property name="HOKUYO_RADIUS" value="0.02"/>
-  <property name="HOKUYO_LENGTH" value="0.07"/>
-  <property name="KINECT_LENGTH" value="0.064"/>
-  <property name="KINECT_WIDTH" value="0.121"/>
-  <property name="KINECT_HEIGHT" value="0.0381"/>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:property name="M_PI" value="3.14159"/>
+  <xacro:property name="M_SCALE" value="0.01"/>
+  <xacro:property name="HOKUYO_RADIUS" value="0.02"/>
+  <xacro:property name="HOKUYO_LENGTH" value="0.07"/>
+  <xacro:property name="KINECT_LENGTH" value="0.064"/>
+  <xacro:property name="KINECT_WIDTH" value="0.121"/>
+  <xacro:property name="KINECT_HEIGHT" value="0.0381"/>
   
   <!-- WHEEL -->
-  <macro name="wheel" params="parent name *origin *axis">
+  <xacro:macro name="wheel" params="parent name *origin *axis">
     <joint name="${name}_joint" type="continuous">
       <insert_block name="origin" />
       <insert_block name="axis" />
@@ -33,10 +33,10 @@
         </geometry>
       </visual>
     </link>
-  </macro>
+  </xacro:macro>
   
   <!-- COMMAND BRIDGE -->
-  <macro name="command_bridge" params="parent name *origin">
+  <xacro:macro name="command_bridge" params="parent name *origin">
     <joint name="${name}_joint" type="fixed">
       <insert_block name="origin" />
       <parent link="${parent}"/>
@@ -59,10 +59,10 @@
         </geometry>
       </collision>
     </link>
-  </macro>
+  </xacro:macro>
   
   <!-- LASER SCANNER -->
-  <macro name="laser" params="parent name *origin">
+  <xacro:macro name="laser" params="parent name *origin">
     <joint name="${name}_joint" type="fixed">
       <insert_block name="origin" />
       <parent link="${parent}"/>
@@ -92,10 +92,10 @@
         </geometry>
       </collision>
     </link>
-  </macro>
+  </xacro:macro>
   
   <!-- Camera -->
-  <macro name="camera" params="parent name *origin">
+  <xacro:macro name="camera" params="parent name *origin">
     <joint name="${name}_joint" type="fixed">
       <insert_block name="origin" />
       <parent link="${parent}"/>
@@ -118,10 +118,10 @@
         </geometry>
       </visual>
     </link>
-  </macro>
+  </xacro:macro>
   
   <!-- AngleBracket With USB Hub -->
-  <macro name="anglebracketusb" params="parent name *origin">
+  <xacro:macro name="anglebracketusb" params="parent name *origin">
     <joint name="${name}_joint" type="fixed">
       <insert_block name="origin" />
       <parent link="${parent}"/>
@@ -144,10 +144,10 @@
         </geometry>
       </visual>
     </link>
-  </macro>
+  </xacro:macro>
   
   <!-- KINECT -->
-  <macro name="kinect" params="parent name color llimit ulimit vlimit *origin">
+  <xacro:macro name="kinect" params="parent name color llimit ulimit vlimit *origin">
     <joint name="${name}_joint" type="revolute">
       <insert_block name="origin" />
       <axis xyz="0 1 0"/>
@@ -180,5 +180,5 @@
         </geometry>
       </collision>
     </link>
-  </macro>
+  </xacro:macro>
 </robot>

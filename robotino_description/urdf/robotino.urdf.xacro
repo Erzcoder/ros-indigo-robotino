@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
-<robot name="robotino">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robotino">
   <!-- Include files -->
-  <include filename="$(find robotino_description)/urdf/robotino_body.xacro"/>
-  <include filename="$(find robotino_description)/urdf/robotino_hardware.xacro"/>
-    
-  <robotino_body />
+    <xacro:include filename="$(find robotino_description)/urdf/robotino_hardware.xacro"/>
+    <xacro:include filename="$(find robotino_description)/urdf/robotino_body.xacro"/>
+   <robotino_body />
 </robot>
