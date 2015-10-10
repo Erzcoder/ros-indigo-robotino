@@ -20,10 +20,4 @@
     <param name="controller_frequency" value="10.0" />
     <!--<remap from="cmd_vel" to="robotino_cmd_vel" />-->
   </node>
-  
-  <!-- Run rviz -->
-  <include file="$(find robotino_navigation)/launch/rviz.launch" />
-  
-  <!-- Run robotino_safety_node -->
-  <!--<include file="$(find robotino_safety)/launch/robotino_safety_node.launch"/>-->
 </launch>
